@@ -1,0 +1,33 @@
+{
+  "root": "libs/api/todo",
+  "sourceRoot": "libs/api/todo/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/api/todo",
+        "tsConfig": "libs/api/todo/tsconfig.lib.json",
+        "packageJson": "libs/api/todo/package.json",
+        "main": "libs/api/todo/src/index.ts",
+        "assets": ["libs/api/todo/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/api/todo/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/api/todo"],
+      "options": {
+        "jestConfig": "libs/api/todo/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
