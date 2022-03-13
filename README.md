@@ -15,6 +15,9 @@ following NX steps here:
 https://nx.dev/nest/overview
 
 
+Nx Walkthrough with nest
+https://nx.dev/node-tutorial/01-create-application
+
 
 ## Important
 When adding angular to the frontend

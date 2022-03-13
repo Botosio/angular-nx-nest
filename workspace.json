@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "api-todo": "libs/api/todo",
     "nest-api": "apps/nest-api"
   }
 }
