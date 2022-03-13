@@ -25,4 +25,10 @@ When adding angular to the frontend
 Application Proxies
 Generating Nest applications has an option to configure other projects in the workspace to proxy API requests. This can be done by passing the --frontendProject with the project name you wish to enable proxy support for.
 
-nx g @nrwl/nest:app my-nest-app --frontendProject my-angular-app
+nx g @nrwl/nest:app nest-api-2 --frontendProject angular-frontend
+
+
+## Building
+to build the frontend
+nx run angular-frontend:build
+nx run angular-frontend:build:production

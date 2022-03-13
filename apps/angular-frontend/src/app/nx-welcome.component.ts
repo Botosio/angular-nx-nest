@@ -821,6 +821,18 @@ nx affected:e2e</pre>
           </details>
         </div>
 
+
+
+        <div id="commands" class="rounded shadow">
+          <h2>TODO Lib</h2>
+          <p>Quick Test</p>
+
+          <angular-nx-nest-todo></angular-nx-nest-todo>
+
+        </div>
+
+
+
         <p id="love">
           Carefully crafted with
           <svg

@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@api/todo": ["libs/api/todo/src/index.ts"]
+      "@api/todo": ["libs/api/todo/src/index.ts"],
+      "@frontend/todo": ["libs/frontend/todo/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

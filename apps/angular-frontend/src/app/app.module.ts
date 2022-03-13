@@ -1,3 +1,4 @@
+import { FrontendTodoModule } from '@frontend/todo';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -10,6 +11,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     BrowserModule,
     RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
+    FrontendTodoModule
   ],
   providers: [],
   bootstrap: [AppComponent],
