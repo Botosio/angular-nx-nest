@@ -1,7 +1,7 @@
 import { Todo } from '@api/todo';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, of } from 'rxjs';
 
 @Injectable()
 export class TodoService {
@@ -10,10 +10,10 @@ export class TodoService {
   constructor(private httpClient: HttpClient) { }
 
   public getList(): Observable<Todo[]> {
-    return this.httpClient.get(this.hostApi + 'api-todo') as Observable<Todo[]>; // TODO: why do I need to add as Observable<Todo[]>
+    return this.httpClient.get<Todo[]>(this.hostApi + 'api-todo');
   }
 
   public getTodo(index: number): Observable<Todo> {
-    return this.httpClient.get(this.hostApi + `api-todo/${index}`) as Observable<Todo>;
+    return this.httpClient.get<Todo>(this.hostApi + `api-todo/${index}`);
   }
 }

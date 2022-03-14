@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Todo } from '@api/todo';
-import { tap } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { catchError, finalize, tap } from 'rxjs/operators';
 import { TodoService } from './todo.service';
 
 @Component({
@@ -30,7 +31,11 @@ export class TodoComponent implements OnInit {
     if (index || Number(index)) {
       this.todoService.getTodo(+index).pipe(
         tap(item => this.todoItem = item),
-        tap(() => this.changeDetectorRef.detectChanges())
+        catchError((error:any) => {
+          this.todoItem = null;
+          return of(error.statusText)
+        }),
+        finalize(() => this.changeDetectorRef.detectChanges())
       ).subscribe();
     }
 
