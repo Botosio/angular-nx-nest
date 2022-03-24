@@ -32,3 +32,8 @@ nx g @nrwl/nest:app nest-api-2 --frontendProject angular-frontend
 to build the frontend
 nx run angular-frontend:build
 nx run angular-frontend:build:production
+
+### Docker
+to run
+`docker compose up`
+`docker compose up -d` : this will run in the background

@@ -1,9 +1,9 @@
 version: "3"
 services:
-  tasks-db:
+  todos-db:
     image: postgres:14.2
-    container_name: tasks-db
+    container_name: todos-db
     ports:
-      - 5432:5432
+      - 5433:5433
     environment:
       POSTGRES_PASSWORD: p@ssw0rd
