@@ -1,21 +1,21 @@
-import { map, Observable, of } from 'rxjs';
+import { from, map, Observable, of, switchMap, tap } from 'rxjs';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { EntityRepository } from '@mikro-orm/postgresql';
-import { ITodo } from './api-todo.interface';
 import { Todo } from './entities/todo.entity';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
+import { wrap } from '@mikro-orm/core';
 
 
 @Injectable()
 export class ApiTodoService {
-  private readonly todos: ITodo[] = [
+  /* private readonly todos: ITodo[] = [
     { message: 'Take out trash', done: false },
     { message: 'Continue using Nx', done: false },
   ];
-
-  constructor(@InjectRepository(Todo) private readonly todoRepository: EntityRepository<ITodo>) {}
+ */
+  constructor(@InjectRepository(Todo) private readonly todoRepository: EntityRepository<Todo>) {}
 
   /* getTodos(): ITodo[] {
     return this.todos;
@@ -34,31 +34,48 @@ export class ApiTodoService {
     );
 	} */
 
-  create(createTodoDto: CreateTodoDto): Observable<ITodo> {
-		const task = this.todoRepository.create(createTodoDto);
-		this.todoRepository.persistAndFlush(task);
+/*  async create(createTaskDto: CreateTaskDto): Promise<Task> {
+		const task = this.taskRepository.create(createTaskDto);
+		await this.taskRepository.persistAndFlush(task);
 
 		return task;
 	}
+ */
 
-  findAll(): Observable<ITodo[]> {
-		return await this.todoRepository.findAll();
+  create(createTodoDto: CreateTodoDto): Observable<Todo> {
+		const task = this.todoRepository.create(createTodoDto);
+		return from(this.todoRepository.persistAndFlush(task)).pipe(
+			map(() => task)
+		);
 	}
 
-	findOne(id: string): Observable<ITodo> {
-		return await this.todoRepository.findOne({ id: id });
+  findAll(): Observable<Todo[]> {
+		return from(this.todoRepository.findAll());
 	}
 
-	update(id: string, updateTaskDto: UpdateTodoDto): Observable<ITodo> {
-		const task = await this.findOne(id);
+	findOne(id: string): Observable<Todo | null> {
+		return from(this.todoRepository.findOne({ id: id }));
+	}
+
+	update(id: string, updateTaskDto: UpdateTodoDto): Observable<Todo | null> {
+		let myTodo:Todo | null = null;
+		return this.findOne(id).pipe(
+			tap(item => {
+				wrap(item).assign(updateTaskDto);
+				myTodo = item;
+			}),
+			switchMap(() => from(this.todoRepository.flush())),
+			map(() => myTodo)
+		)
+	/* 	const task = await this.findOne(id);
 		wrap(task).assign(updateTaskDto);
 		await this.todoRepository.flush();
 
-		return task;
+		return task; */
 	}
 
-	remove(id: string): Observable<void> {
-		await this.todoRepository.nativeDelete({ id: id });
+	remove(id: string): Observable<void | number> {
+		return from(this.todoRepository.nativeDelete({ id: id }));
 	}
 
 

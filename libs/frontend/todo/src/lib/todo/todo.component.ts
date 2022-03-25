@@ -27,9 +27,9 @@ export class TodoComponent implements OnInit {
     ).subscribe();
   }
 
-  public getTodo(index: string): void {
-    if (index || Number(index)) {
-      this.todoService.getTodo(+index).pipe(
+  public getTodo(guid: string): void {
+    if (guid) {
+      this.todoService.getTodo(guid).pipe(
         tap(item => this.todoItem = item),
         catchError((error:any) => {
           this.todoItem = null;

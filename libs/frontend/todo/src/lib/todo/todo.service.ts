@@ -13,7 +13,7 @@ export class TodoService {
     return this.httpClient.get<ITodo[]>(this.hostApi + 'api-todo');
   }
 
-  public getTodo(index: number): Observable<ITodo> {
+  public getTodo(index: string): Observable<ITodo> {
     return this.httpClient.get<ITodo>(this.hostApi + `api-todo/${index}`);
   }
 }
