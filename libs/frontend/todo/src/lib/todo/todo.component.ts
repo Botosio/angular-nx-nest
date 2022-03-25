@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { Todo } from '@api/todo';
+import { ITodo } from '@api/todo';
 import { of } from 'rxjs';
 import { catchError, finalize, tap } from 'rxjs/operators';
 import { TodoService } from './todo.service';
@@ -11,8 +11,8 @@ import { TodoService } from './todo.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoComponent implements OnInit {
-  public todoList: Todo[] = []
-  public todoItem: Todo | null = null;
+  public todoList: ITodo[] = []
+  public todoItem: ITodo | null = null;
 
   constructor(private todoService: TodoService, private changeDetectorRef: ChangeDetectorRef) { }
 

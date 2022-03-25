@@ -1,4 +1,4 @@
-import { Todo } from '@api/todo';
+import { ITodo } from '@api/todo';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -9,11 +9,11 @@ export class TodoService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getList(): Observable<Todo[]> {
-    return this.httpClient.get<Todo[]>(this.hostApi + 'api-todo');
+  public getList(): Observable<ITodo[]> {
+    return this.httpClient.get<ITodo[]>(this.hostApi + 'api-todo');
   }
 
-  public getTodo(index: number): Observable<Todo> {
-    return this.httpClient.get<Todo>(this.hostApi + `api-todo/${index}`);
+  public getTodo(index: number): Observable<ITodo> {
+    return this.httpClient.get<ITodo>(this.hostApi + `api-todo/${index}`);
   }
 }

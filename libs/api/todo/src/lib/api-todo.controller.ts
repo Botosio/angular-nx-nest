@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { Controller, Get, Param } from '@nestjs/common';
-import { Todo } from './api-todo.interface';
+import { ITodo } from './api-todo.interface';
 import { ApiTodoService } from './api-todo.service';
 
 @Controller('api-todo')
@@ -8,7 +8,7 @@ export class ApiTodoController {
   constructor(private apiTodoService: ApiTodoService) {}
 
   @Get()
-	async findAll(): Promise<Todo[]> {
+	async findAll(): Promise<ITodo[]> {
 		return await this.apiTodoService.getTodos();
 	}
 
@@ -18,7 +18,7 @@ export class ApiTodoController {
 	} */
 
   @Get(':index')
-	findOne(@Param('index') index: number): Observable<Todo> {
+	findOne(@Param('index') index: number): Observable<ITodo> {
 		return this.apiTodoService.getTodo(index);
 	}
 }

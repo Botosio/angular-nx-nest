@@ -1,4 +1,4 @@
-export type Todo = {
+export type ITodo = {
   message: string;
   done: boolean;
 };
