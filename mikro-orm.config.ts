@@ -9,7 +9,7 @@ const config: Options = {
 	password: 'p@ssw0rd',
 	dbName: 'todos-db',
 	entities: ['dist/**/*.entity.js'],
-	entitiesTs: ['libs/**/*.entity.ts}'],
+	entitiesTs: ['libs/**/*.entity.ts'],
 	debug: true,
 	loadStrategy: LoadStrategy.JOINED,
 	migrations: {

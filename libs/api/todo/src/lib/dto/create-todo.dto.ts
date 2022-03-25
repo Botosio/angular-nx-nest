@@ -1,4 +1,4 @@
 export class CreateTodoDto {
 	message!: string;
-	done?: boolean;
+	done: boolean | undefined;
 }

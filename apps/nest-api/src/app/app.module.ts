@@ -14,7 +14,7 @@ import { AppService } from './app.service';
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         entities: ['dist/**/*.entity.js'],
-        entitiesTs: ['libs/**/*.entity.ts}'],
+        entitiesTs: ['libs/**/*.entity.ts'],
         type: 'postgresql',
         host: configService.get('database.host'),
         port: configService.get('database.port'),

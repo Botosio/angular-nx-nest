@@ -4,6 +4,6 @@ services:
     image: postgres:14.2
     container_name: todos-db
     ports:
-      - 5433:5433
+      - 5432:5432
     environment:
       POSTGRES_PASSWORD: p@ssw0rd
