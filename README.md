@@ -33,6 +33,11 @@ to build the frontend
 nx run angular-frontend:build
 nx run angular-frontend:build:production
 
+
+## Servicing
+nx serve nest-api
+nx serve angular-frontend
+
 ### Docker
 to run
 `docker compose up`

@@ -16,4 +16,13 @@ export class TodoService {
   public getTodo(index: string): Observable<ITodo> {
     return this.httpClient.get<ITodo>(this.hostApi + `api-todo/${index}`);
   }
+
+  public createTodo(form: ITodo): Observable<ITodo> {
+    delete form.id;
+    return this.httpClient.post<ITodo>(this.hostApi + `api-todo`, form);
+  }
+
+  public UpdateTodo(form: ITodo): Observable<ITodo> {
+    return this.httpClient.patch<ITodo>(this.hostApi + `api-todo/${form.id}`, form);
+  }
 }

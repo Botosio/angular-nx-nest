@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@
 import { ITodo } from '@api/todo';
 import { of } from 'rxjs';
 import { catchError, finalize, tap } from 'rxjs/operators';
-import { TodoService } from './todo.service';
+import { TodoService } from '../todo.service';
 
 @Component({
   selector: 'angular-nx-nest-todo',

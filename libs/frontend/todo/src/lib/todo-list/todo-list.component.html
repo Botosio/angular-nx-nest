@@ -1,0 +1,14 @@
+<h2>Todo List</h2>
+
+<div class="container">
+  <ul>
+    <li *ngFor="let item of list$ | async" >
+      <a [routerLink]="item.id">{{item.message}} - {{item.done}}</a>
+    </li>
+  </ul>
+</div>
+<button type="button" routerLink="create">Create</button>
+<button type="button" (click)="refreshList()">Refresh List</button>
+<hr />
+
+<router-outlet></router-outlet>
