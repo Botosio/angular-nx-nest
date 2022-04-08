@@ -8,7 +8,7 @@
 
 
 <h5>Get Todo index of 1</h5>
-<input type="number" #indexInput (change)="getTodo(indexInput.value)" /> <br/>
+<input  #indexInput (change)="getTodo(indexInput.value)" /> <br/>
 <ng-container *ngIf="todoItem">
   {{todoItem?.message}}, Done:{{todoItem?.done}}
 </ng-container>

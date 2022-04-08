@@ -1,7 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { Todo } from '@api/todo';
-import { tap } from 'rxjs/operators';
-import { TodoService } from './todo.service';
+import { ITodo } from '@api/todo';
+import { of } from 'rxjs';
+import { catchError, finalize, tap } from 'rxjs/operators';
+import { TodoService } from '../todo.service';
 
 @Component({
   selector: 'angular-nx-nest-todo',
@@ -10,8 +11,8 @@ import { TodoService } from './todo.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoComponent implements OnInit {
-  public todoList: Todo[] = []
-  public todoItem: Todo | null = null;
+  public todoList: ITodo[] = []
+  public todoItem: ITodo | null = null;
 
   constructor(private todoService: TodoService, private changeDetectorRef: ChangeDetectorRef) { }
 
@@ -26,11 +27,15 @@ export class TodoComponent implements OnInit {
     ).subscribe();
   }
 
-  public getTodo(index: string): void {
-    if (index || Number(index)) {
-      this.todoService.getTodo(+index).pipe(
+  public getTodo(guid: string): void {
+    if (guid) {
+      this.todoService.getTodo(guid).pipe(
         tap(item => this.todoItem = item),
-        tap(() => this.changeDetectorRef.detectChanges())
+        catchError((error:any) => {
+          this.todoItem = null;
+          return of(error.statusText)
+        }),
+        finalize(() => this.changeDetectorRef.detectChanges())
       ).subscribe();
     }
 

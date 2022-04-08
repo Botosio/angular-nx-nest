@@ -1,0 +1,16 @@
+<h2>Todo Item</h2>
+
+<form [formGroup]="form">
+  <label>Message</label><br/>
+  <input type="text" formControlName="message" /><br/><br/>
+  <label>Active</label><br/>
+  <input type="checkbox" formControlName="done" [checked]="form.get('done')?.value"><br/><br/>
+  <div *ngIf="form.get('id')?.value">
+    <label>ID</label><br/>
+    <input type="text" formControlName="id" readonly /><br/><br/>
+  </div>
+
+  <!-- {{form.getRawValue() | json}} -->
+  <button type="button" (click)="submit()" *ngIf="!form.controls['id']?.value">Submit</button>
+  <button type="button" (click)="update()" *ngIf="form.controls['id']?.value">Update</button>
+</form>

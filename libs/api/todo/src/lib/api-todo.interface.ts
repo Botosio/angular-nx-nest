@@ -1,5 +1,6 @@
-export type Todo = {
+export type ITodo = {
+  id?: string;
   message: string;
-  done: boolean;
+  done?: boolean;
 };
 
