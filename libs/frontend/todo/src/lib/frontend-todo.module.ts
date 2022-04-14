@@ -8,10 +8,25 @@ import { TodoService } from './todo.service';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 import { TodoRoutingModule } from './frontend-todo-routing.module';
-
-
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 @NgModule({
-  imports: [CommonModule, HttpClientModule, RouterModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    RouterModule,
+    ReactiveFormsModule,
+    MatTableModule,
+    MatButtonModule,
+    MatPaginatorModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatCheckboxModule
+  ],
   declarations: [
     TodoComponent,
     TodoListComponent,
@@ -25,4 +40,4 @@ import { TodoRoutingModule } from './frontend-todo-routing.module';
   ],
   providers: [TodoService]
 })
-export class FrontendTodoModule {}
+export class FrontendTodoModule { }
