@@ -1,0 +1,14 @@
+<p>todo works!</p>
+<h5>List</h5>
+<ul>
+  <li *ngFor="let item of todoList">
+    {{item.message}}, Done:{{item.done}}
+  </li>
+</ul>
+
+
+<h5>Get Todo index of 1</h5>
+<input  #indexInput (change)="getTodo(indexInput.value)" /> <br/>
+<ng-container *ngIf="todoItem">
+  {{todoItem?.message}}, Done:{{todoItem?.done}}
+</ng-container>

@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/frontend/todo",
+  "sourceRoot": "libs/frontend/todo/src",
+  "prefix": "angular-nx-nest",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/frontend/todo"],
+      "options": {
+        "project": "libs/frontend/todo/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/frontend/todo/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/frontend/todo/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/frontend/todo"],
+      "options": {
+        "jestConfig": "libs/frontend/todo/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/frontend/todo/src/**/*.ts",
+          "libs/frontend/todo/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

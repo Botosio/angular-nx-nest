@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "projects": {
+    "angular-frontend": "apps/angular-frontend",
+    "angular-frontend-e2e": "apps/angular-frontend-e2e",
+    "api-todo": "libs/api/todo",
+    "frontend-todo": "libs/frontend/todo",
+    "nest-api": "apps/nest-api"
+  }
+}
