@@ -1,16 +1,24 @@
 <h2>Todo Item</h2>
 
 <form [formGroup]="form">
-  <label>Message</label><br/>
-  <input type="text" formControlName="message" /><br/><br/>
-  <label>Active</label><br/>
-  <input type="checkbox" formControlName="done" [checked]="form.get('done')?.value"><br/><br/>
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Message</mat-label>
+    <input matInput formControlName="message">
+  </mat-form-field>
+  <mat-checkbox class="example-margin" formControlName="done">Active</mat-checkbox>
   <div *ngIf="form.get('id')?.value">
-    <label>ID</label><br/>
-    <input type="text" formControlName="id" readonly /><br/><br/>
+    <!-- <label>ID</label><br/>
+    <input type="text" formControlName="id" readonly /><br/><br/> -->
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>ID (disabled)</mat-label>
+      <input matInput formControlName="id" >
+    </mat-form-field>
+
   </div>
 
   <!-- {{form.getRawValue() | json}} -->
-  <button type="button" (click)="submit()" *ngIf="!form.controls['id']?.value">Submit</button>
-  <button type="button" (click)="update()" *ngIf="form.controls['id']?.value">Update</button>
+  <div class="btn-container">
+    <button mat-flat-button color="primary" (click)="submit()" *ngIf="!form.controls['id']?.value">Submit</button>
+    <button mat-flat-button color="accent" (click)="update()" *ngIf="form.controls['id']?.value">Update</button>
+  </div>
 </form>

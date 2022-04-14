@@ -25,7 +25,7 @@ export class TodoDetailComponent implements OnInit {
     return this.formBuilder.group({
       message: [null, Validators.required],
       done: [true],
-      id: []
+      id: [{value:null, disabled:true}]
     });
   }
 
