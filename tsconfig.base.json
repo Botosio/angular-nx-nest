@@ -7,7 +7,7 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "esModuleInterop": true, // added for https://mikro-orm.io/docs/installation
+    "esModuleInterop": true,
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
@@ -17,8 +17,10 @@
     "baseUrl": ".",
     "paths": {
       "@api/todo": ["libs/api/todo/src/index.ts"],
+      "@core/auth": ["libs/auth/core/src/index.ts"],
       "@frontend/todo": ["libs/frontend/todo/src/index.ts"]
-    }
+    },
+    "resolveJsonModule": true
   },
   "exclude": ["node_modules", "tmp"]
 }

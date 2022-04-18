@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { AuthService } from '@core/auth';
 @Component({
   selector: 'angular-nx-nest-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-frontend';
+
+  constructor(private authService: AuthService) {}
 }

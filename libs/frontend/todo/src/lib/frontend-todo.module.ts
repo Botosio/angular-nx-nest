@@ -8,6 +8,7 @@ import { TodoService } from './todo.service';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 import { TodoRoutingModule } from './frontend-todo-routing.module';
+// import { CdkTableModule } from '@angular/cdk/table';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
@@ -20,6 +21,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     HttpClientModule,
     RouterModule,
     ReactiveFormsModule,
+    // CdkTableModule,
     MatTableModule,
     MatButtonModule,
     MatPaginatorModule,

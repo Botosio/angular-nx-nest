@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/auth/core",
+  "sourceRoot": "libs/auth/core/src",
+  "prefix": "angular-nx-nest",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/auth/core"],
+      "options": {
+        "project": "libs/auth/core/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/auth/core/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/auth/core/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/auth/core"],
+      "options": {
+        "jestConfig": "libs/auth/core/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/auth/core/src/**/*.ts",
+          "libs/auth/core/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["core"]
+}
