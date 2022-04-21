@@ -1,5 +1,5 @@
 import { Test } from '@nestjs/testing';
-import { AuthAdminApiService } from '../auth-admin-api.service';
+import { AuthAdminApiService } from '../auth-feature-flag.service';
 
 describe('AuthAdminApiService', () => {
   let service: AuthAdminApiService;

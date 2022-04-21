@@ -43,7 +43,7 @@ MikroOrmModule.forRootAsync({
 ## Building new lib for controllers/DB
 example command:
 
-`npx nx generate @nrwl/nest:library --name=admin-api --directory=auth --buildable --controller --importPath=@auth/admin-api --service --strict --tags='admin api' --no-interactive`
+`npx nx generate @nrwl/nest:library --name=feature-flag --directory=auth --buildable --controller --importPath=@auth/feature-flag --service --strict --tags='admin api' --no-interactive`
 
 ### Entities
 
@@ -93,3 +93,8 @@ In other words, as long as we name the repository same was as the entity is call
 # Future
 Walkthrough with graphQL
 https://www.youtube.com/watch?v=494UUYCja10
+
+
+
+# References
+https://progressivecoder.com/guide-to-mikroorm-nestjs-integration/

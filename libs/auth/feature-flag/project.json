@@ -1,0 +1,33 @@
+{
+  "root": "libs/auth/feature-flag",
+  "sourceRoot": "libs/auth/feature-flag/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/auth/feature-flag",
+        "tsConfig": "libs/auth/feature-flag/tsconfig.lib.json",
+        "packageJson": "libs/auth/feature-flag/package.json",
+        "main": "libs/auth/feature-flag/src/index.ts",
+        "assets": ["libs/auth/feature-flag/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/auth/feature-flag/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/auth/feature-flag"],
+      "options": {
+        "jestConfig": "libs/auth/feature-flag/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["admin api"]
+}

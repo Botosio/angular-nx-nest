@@ -1,6 +1,6 @@
 import { Test } from '@nestjs/testing';
-import { AuthAdminApiController } from '../auth-admin-api.controller';
-import { AuthAdminApiService } from '../auth-admin-api.service';
+import { AuthAdminApiController } from '../auth-feature-flag.controller';
+import { AuthAdminApiService } from '../auth-feature-flag.service';
 
 describe('AuthAdminApiController', () => {
   let controller: AuthAdminApiController;

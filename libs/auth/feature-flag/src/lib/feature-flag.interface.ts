@@ -1,4 +1,4 @@
-export interface CreateAdminFeatureFlagDTO {
+export interface CreateFeatureFlagDTO {
   title: string;
   createdOn: Date;
   updatedOn: Date;
@@ -6,5 +6,5 @@ export interface CreateAdminFeatureFlagDTO {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface UpdateAdminFeatureFlagDTO extends Partial<CreateAdminFeatureFlagDTO> {
+export interface UpdateFeatureFlagDTO extends Partial<CreateFeatureFlagDTO> {
 }

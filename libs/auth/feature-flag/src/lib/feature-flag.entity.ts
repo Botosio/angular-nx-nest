@@ -2,7 +2,7 @@ import { Entity, PrimaryKey, Property } from "@mikro-orm/core";
 import { randomUUID } from "crypto";
 
 @Entity()
-export class AdminFeatureFlag {
+export class FeatureFlag {
 
     @PrimaryKey({ columnType: 'uuid' })
     id: string = randomUUID();

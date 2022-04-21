@@ -1,5 +1,5 @@
 {
-  "name": "@auth/admin-api",
+  "name": "@auth/feature-flag",
   "version": "0.0.1",
   "type": "commonjs"
 }

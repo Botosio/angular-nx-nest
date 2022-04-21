@@ -1,31 +1,31 @@
 import { from, map, Observable, switchMap, tap } from 'rxjs';
 import { Injectable } from '@nestjs/common';
-import { CreateAdminFeatureFlagDTO, UpdateAdminFeatureFlagDTO } from './auth-admin.interface';
-import { AdminFeatureFlagRepository } from './auth-admin.repository';
-import { AdminFeatureFlag } from './auth-admin.entity';
+import { CreateFeatureFlagDTO, UpdateFeatureFlagDTO } from './feature-flag.interface';
+import { FeatureFlagRepository } from './feature-flag.repository';
+import { FeatureFlag } from './feature-flag.entity';
 import { wrap } from '@mikro-orm/core';
 
 @Injectable()
-export class AuthAdminApiService {
-  constructor(private readonly repo: AdminFeatureFlagRepository) {}
+export class FeatureFlagApiService {
+  constructor(private readonly repo: FeatureFlagRepository) {}
 
-  create(createAdminFeatureFlag: CreateAdminFeatureFlagDTO): Observable<AdminFeatureFlag> {
+  create(createAdminFeatureFlag: CreateFeatureFlagDTO): Observable<FeatureFlag> {
     const task = this.repo.create(createAdminFeatureFlag);
     return from(this.repo.persistAndFlush(task)).pipe(
 			map(() => task)
 		);
   }
 
-  findAll(): Observable<AdminFeatureFlag[]> {
+  findAll(): Observable<FeatureFlag[]> {
 		return from(this.repo.findAll());
 	}
 
-	findOne(id: string): Observable<AdminFeatureFlag | null> {
+	findOne(id: string): Observable<FeatureFlag | null> {
 		return from(this.repo.findOne({ id: id }));
 	}
 
-	update(id: string, updateTaskDto: UpdateAdminFeatureFlagDTO): Observable<AdminFeatureFlag | null> {
-		let myAdminFeatureFlag:AdminFeatureFlag | null = null;
+	update(id: string, updateTaskDto: UpdateFeatureFlagDTO): Observable<FeatureFlag | null> {
+		let myAdminFeatureFlag:FeatureFlag | null = null;
 		return this.findOne(id).pipe(
 			tap(item => {
 				wrap(item).assign(updateTaskDto);
