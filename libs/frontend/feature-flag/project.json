@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/frontend/feature-flag",
+  "sourceRoot": "libs/frontend/feature-flag/src",
+  "prefix": "angular-nx-nest",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/frontend/feature-flag"],
+      "options": {
+        "project": "libs/frontend/feature-flag/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/frontend/feature-flag/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/frontend/feature-flag/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/frontend/feature-flag"],
+      "options": {
+        "jestConfig": "libs/frontend/feature-flag/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/frontend/feature-flag/src/**/*.ts",
+          "libs/frontend/feature-flag/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["frontend"]
+}

@@ -19,6 +19,7 @@
       "@api/todo": ["libs/api/todo/src/index.ts"],
       "@auth/feature-flag": ["libs/auth/feature-flag/src/index.ts"],
       "@core/auth": ["libs/auth/core/src/index.ts"],
+      "@frontend/feature-flag": ["libs/frontend/feature-flag/src/index.ts"],
       "@frontend/todo": ["libs/frontend/todo/src/index.ts"]
     },
     "resolveJsonModule": true

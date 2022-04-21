@@ -4,8 +4,9 @@
     "angular-frontend": "apps/angular-frontend",
     "angular-frontend-e2e": "apps/angular-frontend-e2e",
     "api-todo": "libs/api/todo",
-    "auth-feature-flag": "libs/auth/feature-flag",
     "auth-core": "libs/auth/core",
+    "auth-feature-flag": "libs/auth/feature-flag",
+    "frontend-feature-flag": "libs/frontend/feature-flag",
     "frontend-todo": "libs/frontend/todo",
     "nest-api": "apps/nest-api"
   }
