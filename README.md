@@ -7,7 +7,7 @@ Looking at nest examples from zach here
 https://github.com/zach-meyers/tasker
 
 
-UI based off ngx-admin
+UI based off ngx-admin (NOT YET)
 https://github.com/akveo/ngx-admin
 
 

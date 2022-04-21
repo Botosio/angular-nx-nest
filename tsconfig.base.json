@@ -17,6 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@api/todo": ["libs/api/todo/src/index.ts"],
+      "@auth/admin-api": ["libs/auth/admin-api/src/index.ts"],
       "@core/auth": ["libs/auth/core/src/index.ts"],
       "@frontend/todo": ["libs/frontend/todo/src/index.ts"]
     },

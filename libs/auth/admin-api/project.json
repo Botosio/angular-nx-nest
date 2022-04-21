@@ -1,0 +1,33 @@
+{
+  "root": "libs/auth/admin-api",
+  "sourceRoot": "libs/auth/admin-api/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/auth/admin-api",
+        "tsConfig": "libs/auth/admin-api/tsconfig.lib.json",
+        "packageJson": "libs/auth/admin-api/package.json",
+        "main": "libs/auth/admin-api/src/index.ts",
+        "assets": ["libs/auth/admin-api/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/auth/admin-api/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/auth/admin-api"],
+      "options": {
+        "jestConfig": "libs/auth/admin-api/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["admin api"]
+}

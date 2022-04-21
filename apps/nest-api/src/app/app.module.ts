@@ -20,7 +20,8 @@ import { AppService } from './app.service';
         port: configService.get('database.port'),
         dbName: configService.get('database.name'),
         user: configService.get('database.user'),
-        password: configService.get('database.password')
+        password: configService.get('database.password'),
+        autoLoadEntities: true // https://docs.nestjs.com/recipes/mikroorm#load-entities-automatically
       })
     }),
     ApiTodoModule
