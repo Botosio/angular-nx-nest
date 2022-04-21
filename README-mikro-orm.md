@@ -47,6 +47,8 @@ example command:
 
 ### Entities
 
+Example: libs/auth/feature-flag
+
 Steps:
 - Create your entity
 - Create your repository with the same name of your entity
@@ -71,8 +73,23 @@ In other words, as long as we name the repository same was as the entity is call
 
 
 ******
-## Migrations
-<p>Ok so we now have an entity with a controller and service but we now need to do code first DB</p>
+## Migrations ([link](https://mikro-orm.io/docs/migrations))
+By default, each migration will be all executed inside a transaction, and all of them will be wrapped in one master transaction, so if one of them fails, everything will be rolled back.
+
+Ok so we now have an entity with a controller and service but we now need to do code first DB
+
+If you already have both entities and schema you can run init `npx mikro-orm migration:create --initial`, this should create a
+migration folder
+
+Once you have added a new lib => entity, use the `npx mikro-orm migration:create`
+
+Then run `npx mikro-orm migration:up` to run the new migration script
+
+> Make sure docker is up and running (`docker compose up -d`)
+> I use PG Admin tool to view postgres DB
+
+
+All Commands
 
 > npx mikro-orm migration:create   # Create new migration with current schema diff
 >
